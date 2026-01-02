@@ -8,6 +8,7 @@ class DataLoader:
     def __init__(self):
         pass
 
+    # Universal func to load torch model
     def load_torch_model(self, model_path):
         
         if not(os.path.exists(model_path)):
@@ -15,10 +16,9 @@ class DataLoader:
             return None
         
         try:
-            model = torch.load(model_path, weights_only=True, map_location='cpu')
+            model = torch.load(model_path, map_location='cpu')
 
             if isinstance(model, torch.nn.Module):
-                model.eval()
                 return model
             
             print("File is not torch model!")
@@ -28,7 +28,8 @@ class DataLoader:
             print(e)
             return None
 
-    def load_data(self, data_path):
+    # Func to get data for classification
+    def load_data_classif(self, data_path):
         
         if not(os.path.exists(data_path)):
             print("No such file or directory!")
@@ -42,3 +43,4 @@ class DataLoader:
         except Exception as e:
             print(e)
             return None
+    
