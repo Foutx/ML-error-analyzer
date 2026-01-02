@@ -4,11 +4,11 @@ from load_data import DataLoader
 
 class GetPreds:
 
-    def __init__(self, model, data_path, target_name):
+    def __init__(self, model_path, data_path, target_name):
         
         self.loader = DataLoader()
 
-        self.model = model
+        self.model_path = model_path
         self.data_path = data_path
         self.target_name = target_name
 
@@ -21,13 +21,15 @@ class GetPreds:
             X_test_df = df.drop(columns=[self.target_name])
             #y_test = df[self.target_name]
 
-            device = next(self.model.parameters()).device
+            model = self.loader.load_torch_model(self.model_path)
+
+            device = next(model.parameters()).device
 
             X_test = torch.FloatTensor(X_test_df.values).to(device)
 
             with torch.no_grad():
-                self.model.eval()
-                preds = self.model(X_test)
+                model.eval()
+                preds = model(X_test)
                 if preds.ndim == 1 or preds.shape[1] == 1:
                     y_pred = (torch.sigmoid(preds) > 0.5).long().squeeze()
                 else:
