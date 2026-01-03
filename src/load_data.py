@@ -9,7 +9,7 @@ class DataLoader:
         pass
 
     # Universal func to load torch model
-    def load_torch_model(self, model_path):
+    def load_torch_model(self, model_path: str):
         
         if not(os.path.exists(model_path)):
             print("No such file or directory!")
@@ -29,7 +29,7 @@ class DataLoader:
             return None
 
     # Func to get data for classification
-    def load_data_classif(self, data_path):
+    def load_data_classif(self, data_path: str):
         
         if not(os.path.exists(data_path)):
             print("No such file or directory!")
