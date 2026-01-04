@@ -9,7 +9,6 @@ class ModelClient:
 
     def get_recommendations(self, prompt: str):
 
-
         headers = {
             "Authorization": f"Bearer {self.api_key}",
             "Content-Type": "application/json"
