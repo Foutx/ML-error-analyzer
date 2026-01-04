@@ -9,7 +9,7 @@ load_dotenv()
 api_key = os.getenv("LLAMA_API_KEY")
 
 if not api_key:
-    raise RuntimeError("GIGACHAT_API_KEY not found in environment")
+    raise RuntimeError("LLAMA_API_KEY not found in environment")
 
 try:
 
