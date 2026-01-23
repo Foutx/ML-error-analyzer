@@ -1,10 +1,10 @@
-# API KEYS get here -> [Link](https://console.groq.com) 
-
 # ML Error Analyzer
 
-## 🐳 Запуск через Docker
+## API KEYS for modek take here -> [Link](https://console.groq.com) 
 
-### Собрать локально
+## 🐳 Running with Docker
+
+### Build locally
 ```bash
 git clone https://github.com/Foutx/ML-error-analyzer.git
 cd ML-error-analyzer
